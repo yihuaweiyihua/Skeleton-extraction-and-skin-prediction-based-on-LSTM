@@ -17,7 +17,7 @@ class SkeletonTreeLSTM(nn.Module):
         origin_x = origin_x.permute(0,2,1)
         
         skeleton_score = nn.softmax(skeleton_score, dim=2)
-        _, idx = jt.topk(skeleton_score.permute(0,2,1), 50, dim=2)
+        _, idx = jt.topk(skeleton_score.permute(0,2,1), 500, dim=2)
         x0 = jt.max(x, 2)
         # 存储每个节点的3D位置
         all_joints = jt.zeros((batch_size, self.num_joints, 3))
