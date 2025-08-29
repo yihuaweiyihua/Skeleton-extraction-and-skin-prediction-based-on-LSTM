@@ -88,7 +88,7 @@ class SkinModel(nn.Module):
         # 计算距离
         vertices_expand = vertices.unsqueeze(2).repeat(1, 1, J, 1)  # (B, N, J, 3)
         joints_expand = joints.unsqueeze(1).repeat(1, N, 1, 1)  # (B, N, J, 3)
-        distance = ((vertices_expand - joints_expand) ** 2).sum(dim=3, keepdims=True).sqrt()  # (B, N, J, 1)
+        distance = (vertices_expand - joints_expand).sum(dim=3, keepdims=True).sqrt()  # (B, N, J, 1)
         # 连接融合特征和距离特征
         fuse_feat = concat([concat_feat[..., None], distance], dim=3)  # (B, N, J, feat_dim*2)
         
