@@ -1,4 +1,4 @@
-# Skeleton-extraction-and-skin-prediction-based-on-LSTM
+# jittor-NEUer-人体骨架与蒙皮网络预测
 
 ## 项目来源概述
 
